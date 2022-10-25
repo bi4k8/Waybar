@@ -372,6 +372,10 @@ void Task::hide_if_ignored() {
 }
 
 void Task::handle_app_id(const char *app_id) {
+  /* Early-exit if the app id is unchanged */
+  if (app_id_ == app_id) {
+    return;
+  }
   app_id_ = app_id;
   hide_if_ignored();
 
